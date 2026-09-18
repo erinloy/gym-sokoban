@@ -1,6 +1,5 @@
 from .sokoban_env import SokobanEnv, CHANGE_COORDINATES
-from gym.spaces import Box
-from gym.spaces.discrete import Discrete
+from gymnasium.spaces import Discrete, Box
 
 
 class PushAndPullSokobanEnv(SokobanEnv):

@@ -1,7 +1,6 @@
-import gym
-from gym.utils import seeding
-from gym.spaces.discrete import Discrete
-from gym.spaces import Box
+import gymnasium as gym
+from gymnasium.utils import seeding
+from gymnasium.spaces import Discrete, Box
 from .room_utils import generate_room
 from .render_utils import room_to_rgb, room_to_tiny_world_rgb
 import numpy as np
@@ -229,7 +228,10 @@ class SokobanEnv(gym.Env):
             return img
 
         elif 'human' in mode:
-            from gym.envs.classic_control import rendering
+            try:
+                from gymnasium.envs.classic_control import rendering
+            except ImportError:
+                from gym.envs.classic_control import rendering
             if self.viewer is None:
                 self.viewer = rendering.SimpleImageViewer()
             self.viewer.imshow(img)

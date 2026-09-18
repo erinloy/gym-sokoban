@@ -1,7 +1,10 @@
 import logging
 import pkg_resources
 import json
-from gym.envs.registration import register
+try:
+    from gymnasium.envs.registration import register
+except ImportError:
+    from gym.envs.registration import register
 
 logger = logging.getLogger(__name__)
 
